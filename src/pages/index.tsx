@@ -19,7 +19,7 @@ const Home = () => {
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('https://btnmt.1cdn.vn/2021/12/20/hinh-1.jpg')",
+                "url('https://mogivi-blog.azureedge.net/media/1276/chung-cu-quan-7.jpg')",
             }}
           >
             <span
@@ -38,12 +38,10 @@ const Home = () => {
                 <div className="px-12">
                   <CloudMoon className="text-white w-24 h-24 mb-2 lg:w-6/12 px-4 ml-auto mr-auto text-center" />
                   <h1 className="text-white font-semibold text-5xl">
-                    Chung cư BlueMoon
+                    BlueMoon Apartment
                   </h1>
                   <p className="text-white mt-4 text-lg">
-                    Biểu tượng của sự phát triển hiện đại và thịnh vượng. Với
-                    thiết kế tinh tế và tiện nghi sang trọng, BlueMoon mang đến
-                    không gian sống hoàn hảo, xứng tầm đẳng cấp.
+                    Nơi 
                   </p>
                 </div>
               </motion.div>

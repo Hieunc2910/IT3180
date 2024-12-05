@@ -1,39 +1,24 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
-  // NOTE: When using postgresql, mysql or sqlserver, uncomment the @db.Text annotations in model Account below
-  // Further reading:
-  // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
-  // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
+  provider = "sqlserver"
   url      = env("DATABASE_URL")
 }
 
-// model Example {
-//    id        String   @id @default(cuid())
-//    name      String
-//    createdAt DateTime @default(now())
-//    updatedAt DateTime @updatedAt
-//}
-
-// Necessary for Next auth
 model Account {
   id                String  @id @default(cuid())
   userId            String
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -55,10 +40,10 @@ model User {
   password      String?
   emailVerified DateTime?
   image         String?
-  accounts      Account[]
-  sessions      Session[]
   createAt      DateTime  @default(now()) @map("create_at")
   updateAt      DateTime  @default(now()) @updatedAt @map("update_at")
+  accounts      Account[]
+  sessions      Session[]
 }
 
 model VerificationToken {
@@ -78,17 +63,17 @@ model Resident {
   vehicle     String   @map("vehicle")
   createAt    DateTime @default(now()) @map("create_at")
   updateAt    DateTime @default(now()) @updatedAt @map("update_at")
-  address     Address  @relation(fields: [addressId], references: [id], onDelete: Cascade)
   addressId   String   @unique
+  address     Address  @relation(fields: [addressId], references: [id], onDelete: Cascade)
 }
 
 model Address {
   id               String      @id @default(cuid())
-  apartment        Apartment   @relation(fields: [apartmentNo], references: [apartmentNo])
   apartmentNo      Int
   permanentAddress String
   currentAddress   String
   isStaying        Boolean
+  apartment        Apartment   @relation(fields: [apartmentNo], references: [apartmentNo])
   dateRanges       DateRange[]
   resident         Resident?
 }
@@ -98,16 +83,16 @@ model DateRange {
   startDate DateTime @default(now()) @map("start_date")
   endDate   DateTime @map("end_date")
   type      String   @map("type")
-  address   Address @relation(fields: [addressId], references: [id], onDelete: Cascade)
   addressId String
+  address   Address  @relation(fields: [addressId], references: [id], onDelete: Cascade)
 }
 
 model Apartment {
   id          Int       @id @default(autoincrement())
   apartmentNo Int       @unique
   size        Int
-  fees        Fee[]
   addresses   Address[]
+  fees        Fee[]
 }
 
 model Fee {
@@ -122,8 +107,8 @@ model Fee {
   totalAmount      Float     @map("amount")
   dueDate          DateTime  @map("dueDate")
   isPaid           Boolean   @default(false) @map("isPaid")
-  apartment        Apartment @relation(fields: [apartmentNo], references: [apartmentNo], onUpdate: Cascade, onDelete: Cascade)
   apartmentNo      Int
   createAt         DateTime  @default(now()) @map("create_at")
   updateAt         DateTime  @default(now()) @updatedAt @map("update_at")
+  apartment        Apartment @relation(fields: [apartmentNo], references: [apartmentNo], onDelete: Cascade)
 }
