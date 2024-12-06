@@ -38,10 +38,11 @@ const Home = () => {
                 <div className="px-12">
                   <CloudMoon className="text-white w-24 h-24 mb-2 lg:w-6/12 px-4 ml-auto mr-auto text-center" />
                   <h1 className="text-white font-semibold text-5xl">
-                    BlueMoon Apartment
+                    BlueMoon Fuck
                   </h1>
                   <p className="text-white mt-4 text-lg">
-                    Nơi 
+                    Nơi Để ngủ
+
                   </p>
                 </div>
               </motion.div>
@@ -61,9 +62,9 @@ const Home = () => {
                 <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto bg-white rounded-lg">
                     <Sun className="w-12 h-12 mb-4 mx-auto text-black" />
-                    <h6 className="text-xl font-semibold text-black">Tiện Nghi Cao Cấp</h6>
+                    <h6 className="text-xl font-semibold text-black">Tiện Nghi Luxury</h6>
                     <p className="mt-2 font-light mb-4 text-black">
-                      Thưởng thức các tiện ích hiện đại như phòng gym, hồ bơi và
+                      Thưởng thức các tiện ích hiện đại như phòng gym, hồ bơi ngoài trời và
                       vườn trên mái. Mọi chi tiết đều được thiết kế để mang đến
                       sự thoải mái và sang trọng tuyệt đối.
                     </p>

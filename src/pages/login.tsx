@@ -64,7 +64,7 @@ const Login = () => {
             <div className="rounded-t mb-0 px-6 py-6">
               <div className="text-center mb-4">
                 <h6 className="text-blueGray-500 font-bold">
-                  Đăng nhập bằng
+                  Đăng Nhập Bằng
                 </h6>
               </div>
               <div className="btn-wrapper text-center">
